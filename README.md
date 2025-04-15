@@ -77,45 +77,64 @@ University departments are overwhelmed by thousands of repetitive queries each s
 
 ---
 CampusNavigator-AI/
-├── README.md                   ← Project overview and documentation
-├── requirements.txt            ← Python dependencies
-├── .gitignore                  ← Files to ignore in version control
+├── README.md                           ← Project documentation overview
+├── requirements.txt                    ← Python dependencies
+├── .env.example                        ← Example environment variables
+├── .gitignore                          ← Files to ignore
 │
-├── data/                       ← Raw and processed data
-│   ├── raw/                    ← Scraped or unprocessed PDFs, JSONs
-│   └── processed/              ← Cleaned and structured text data
-│
-├── notebooks/                  ← EDA, model training experiments
-│   └── RAG_Prototype.ipynb     ← First prototype of RAG model
-│
-├── src/                        ← Core source code
-│   ├── scraping/               ← Scripts for web/PDF scraping
-│   │   └── scrape_unt.py       ← Scraper for UNT website
+├── backend/                            ← Core AI/NLP backend logic
+│   ├── api/                            ← FastAPI app with routes
+│   │   ├── main.py                     ← FastAPI entrypoint
+│   │   ├── routes.py                   ← Endpoint definitions
+│   │   └── models.py                   ← Pydantic models for request/response
 │   │
-│   ├── preprocessing/          ← Text cleaning and normalization
-│   │   └── clean_text.py       ← Tokenizer, lemmatizer, etc.
+│   ├── rag_engine/                     ← Retrieval-Augmented Generation
+│   │   ├── retriever.py                ← Vector search logic (FAISS/Chroma)
+│   │   ├── generator.py                ← LLM response generation (T5/BERT)
+│   │   └── pipeline.py                 ← End-to-end RAG pipeline
 │   │
-│   ├── embeddings/             ← Word/sentence embedding generators
-│   │   └── embed_text.py       ← Word2Vec, SBERT
+│   ├── embeddings/                     ← Word/sentence embedding logic
+│   │   ├── embed_utils.py              ← Sentence-BERT, TF-IDF, Word2Vec loaders
+│   │   └── faiss_index/                ← Saved vector indices
 │   │
-│   ├── rag_pipeline/           ← RAG retrieval and response logic
-│   │   ├── retriever.py        ← Document retriever using FAISS/Chroma
-│   │   └── generator.py        ← T5/BERT-based answer generation
+│   ├── preprocessing/                  ← Data cleaning & text preparation
+│   │   └── cleaner.py                  ← Tokenization, Lemmatization, etc.
 │   │
-│   ├── api/                    ← FastAPI app and endpoints
-│   │   ├── main.py             ← Entry point for FastAPI server
-│   │   └── routes.py           ← Defines routes for querying
+│   ├── data/                           ← Local dataset handling
+│   │   ├── raw/                        ← Scraped PDFs, HTMLs
+│   │   └── processed/                  ← Cleaned structured data
 │   │
-│   └── models/                 ← Trained / fine-tuned model files
-│       └── bert_tuned.pt       ← Saved model checkpoint
+│   ├── models/                         ← Fine-tuned and custom-trained models
+│   │   ├── bert_tuned/
+│   │   └── t5_adapter/
+│   │
+│   └── notebooks/                      ← Research & prototyping (Colab ready)
+│       ├── 1_scraping_colab.ipynb
+│       ├── 2_preprocessing.ipynb
+│       ├── 3_embeddings.ipynb
+│       ├── 4_rag_pipeline.ipynb
+│       ├── 5_evaluation.ipynb
+│       └── 6_interface_streamlit.ipynb
 │
-├── ui/                         ← Streamlit or React frontend
-│   └── streamlit_app.py        ← Prototype user interface
+├── frontend/                           ← UI layer (Streamlit, React later)
+│   ├── streamlit_app/                  ← Initial chatbot with Streamlit
+│   │   ├── app.py                      ← Streamlit UI script
+│   │   └── components/                 ← Optional reusable UI blocks
+│   └── react_app/                      ← (Optional) Production-grade React UI
+│       ├── public/
+│       ├── src/
+│       └── package.json
 │
-├── tests/                      ← Unit & integration tests
-│   └── test_pipeline.py        ← Pipeline and RAG tests
+├── tests/                              ← Unit + integration tests
+│   ├── test_rag.py
+│   ├── test_api.py
+│   └── test_preprocessing.py
 │
-└── docs/                       ← (Optional) Sphinx/Markdown documentation
-    └── architecture.md         ← System design and flow diagrams
-
-
+├── scripts/                            ← ⚙️ Deployment / automation scripts
+│   ├── deploy_aws.sh                   ← AWS deployment setup
+│   └── ingest_data.py                  ← CLI script to scrape and prepare data
+│
+├── .dockerignore                       ← 🐳 Docker ignore
+├── Dockerfile                          ← 🐳 Backend containerization
+├── docker-compose.yml                  ← 🐳 Local full-stack deployment
+└── LICENSE                             ← 📄 License
