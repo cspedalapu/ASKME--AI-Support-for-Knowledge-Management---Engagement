@@ -85,31 +85,31 @@ CampusNavigator-AI/
 │
 ├── backend/                            
 │   ├── api/                           
-│   │   ├── main.py                     ← FastAPI entrypoint
-│   │   ├── routes.py                   ← Endpoint definitions
-│   │   └── models.py                   ← Pydantic models for request/response
+│   │   ├── main.py                     
+│   │   ├── routes.py                   
+│   │   └── models.py                   
 │   │
-│   ├── rag_engine/                     ← Retrieval-Augmented Generation
-│   │   ├── retriever.py                ← Vector search logic (FAISS/Chroma)
-│   │   ├── generator.py                ← LLM response generation (T5/BERT)
-│   │   └── pipeline.py                 ← End-to-end RAG pipeline
+│   ├── rag_engine/                    
+│   │   ├── retriever.py                
+│   │   ├── generator.py               
+│   │   └── pipeline.py                
 │   │
-│   ├── embeddings/                     ← Word/sentence embedding logic
-│   │   ├── embed_utils.py              ← Sentence-BERT, TF-IDF, Word2Vec loaders
-│   │   └── faiss_index/                ← Saved vector indices
+│   ├── embeddings/                     
+│   │   ├── embed_utils.py              
+│   │   └── faiss_index/               
 │   │
-│   ├── preprocessing/                  ← Data cleaning & text preparation
-│   │   └── cleaner.py                  ← Tokenization, Lemmatization, etc.
+│   ├── preprocessing/                  
+│   │   └── cleaner.py                  
 │   │
-│   ├── data/                           ← Local dataset handling
-│   │   ├── raw/                        ← Scraped PDFs, HTMLs
-│   │   └── processed/                  ← Cleaned structured data
+│   ├── data/
+│   │   ├── raw/
+│   │   └── processed/                 
 │   │
-│   ├── models/                         ← Fine-tuned and custom-trained models
+│   ├── models/                        
 │   │   ├── bert_tuned/
 │   │   └── t5_adapter/
 │   │
-│   └── notebooks/                      ← Research & prototyping (Colab ready)
+│   └── notebooks/                 
 │       ├── 1_scraping_colab.ipynb
 │       ├── 2_preprocessing.ipynb
 │       ├── 3_embeddings.ipynb
