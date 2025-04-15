@@ -77,13 +77,13 @@ University departments are overwhelmed by thousands of repetitive queries each s
 
 ---
 CampusNavigator-AI/
-├── README.md                           ← Project documentation overview
-├── requirements.txt                    ← Python dependencies
-├── .env.example                        ← Example environment variables
-├── .gitignore                          ← Files to ignore
+├── README.md                           
+├── requirements.txt                   
+├── .env.example                        
+├── .gitignore                         
 │
-├── backend/                            ← Core AI/NLP backend logic
-│   ├── api/                            ← FastAPI app with routes
+├── backend/                            
+│   ├── api/                           
 │   │   ├── main.py                     ← FastAPI entrypoint
 │   │   ├── routes.py                   ← Endpoint definitions
 │   │   └── models.py                   ← Pydantic models for request/response
