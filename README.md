@@ -77,6 +77,7 @@ University departments are overwhelmed by thousands of repetitive queries each s
 
 ---
 CampusNavigator-AI/
+
 ├── README.md                           
 ├── requirements.txt                   
 ├── .env.example                        
@@ -116,25 +117,25 @@ CampusNavigator-AI/
 │       ├── 5_evaluation.ipynb
 │       └── 6_interface_streamlit.ipynb
 │
-├── frontend/                           ← UI layer (Streamlit, React later)
-│   ├── streamlit_app/                  ← Initial chatbot with Streamlit
-│   │   ├── app.py                      ← Streamlit UI script
-│   │   └── components/                 ← Optional reusable UI blocks
-│   └── react_app/                      ← (Optional) Production-grade React UI
+├── frontend/                          
+│   ├── streamlit_app/                  
+│   │   ├── app.py
+│   │   └── components/                 
+│   └── react_app/                      
 │       ├── public/
 │       ├── src/
 │       └── package.json
 │
-├── tests/                              ← Unit + integration tests
+├── tests/                              
 │   ├── test_rag.py
 │   ├── test_api.py
 │   └── test_preprocessing.py
 │
-├── scripts/                            ← ⚙️ Deployment / automation scripts
-│   ├── deploy_aws.sh                   ← AWS deployment setup
-│   └── ingest_data.py                  ← CLI script to scrape and prepare data
+├── scripts/                            
+│   ├── deploy_aws.sh                   
+│   └── ingest_data.py                  
 │
-├── .dockerignore                       ← 🐳 Docker ignore
-├── Dockerfile                          ← 🐳 Backend containerization
-├── docker-compose.yml                  ← 🐳 Local full-stack deployment
-└── LICENSE                             ← 📄 License
+├── .dockerignore                       
+├── Dockerfile                          
+├── docker-compose.yml                  
+└── LICENSE                             
